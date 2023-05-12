@@ -1,10 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import UserSlider from './components/useSlider';
 
 function App() {
   return (
-    <div>
-      <h1>HolaMundo</h1>
+    <div className="App">
+      <div className="container">
+        <UserSlider />
+      </div>
     </div>
   );
 }
