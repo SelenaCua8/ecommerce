@@ -14,6 +14,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import App from '../App';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -36,24 +37,26 @@ export default function Product() {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="product">
-            P
-          </Avatar>
-        }
+       
         action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
+          <Typography
+          className='classes.action'
+          variant='h5'
+          color='textSecondary'
+          >
+            {50}
+          </Typography>
+            
         }
-        title="Product Name"
-        subheader="September 14, 2023"
+       
+        title="Taza"
+        subheader="En stock"
       />
       <CardMedia
         component="img"
-        height="194"
-        image="/static/images/cards/product-image.jpg"
-        alt="Product Image"
+        height="500"
+        img src='https://i.pinimg.com/564x/ed/b7/ff/edb7ff2c26e239ed8090f44bdfedc9f7.jpg'
+        
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">

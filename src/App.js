@@ -1,11 +1,11 @@
 import './App.css';
-import UserSlider from './components/useSlider';
+import Product from './components/Product';
 
 function App() {
   return (
     <div className="App">
       <div className="container">
-        <UserSlider />
+        <Product />
       </div>
     </div>
   );
