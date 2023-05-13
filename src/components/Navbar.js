@@ -5,12 +5,35 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import logo from '../assets/logoceramica.png';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    marginBottom: '7rem',
+  },
+  appBar: {
+    backgroundColor: 'green',
+    boxShadow: 'none',
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  button: {
+    marginLeft: theme.spacing(2),
+  },
+  image: {
+    marginRight: '10px',
+    height: '4rem',
+  },
+}));
 
 export default function Navbar() {
+  const classes = useStyles();
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <IconButton
             size="large"
@@ -18,11 +41,12 @@ export default function Navbar() {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            className={classes.menuButton}
           >
-            <MenuIcon />
+            <img src={logo} className={classes.image} alt="Logo" />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+          <Typography variant="h6" component="div" className={classes.title}>
+            hello guest
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>

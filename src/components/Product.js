@@ -17,14 +17,15 @@ const theme = createTheme();
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: 300,
+    margin: '10rem',
   },
   action: {
-    marginTop: '1rem',
+    marginTop: '5rem',
   },
   media: {
     height: 0,
-    paddingTop: '56.25%',
+    paddingTop: '25rem',
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -36,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
+
 }));
 
 export default function Product() {
@@ -56,7 +58,7 @@ export default function Product() {
               variant='h5'
               color='textSecondary'
             >
-              {accounting.formatMoney(50)}
+              {accounting.formatMoney(50, '$')}
             </Typography>
           }
           title='Taza'
@@ -77,7 +79,7 @@ export default function Product() {
             <AddShoppingCart fontSize='large' />
           </IconButton>
           <IconButton>
-            {[...Array(5)].map((_, i) => (
+            {[...Array(1)].map((_, i) => (
               <p key={i}>&#11088;</p>
             ))}
           </IconButton>
