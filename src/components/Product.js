@@ -1,4 +1,6 @@
 import React from 'react';
+import { makeStyles } from '@mui/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -9,9 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { AddShoppingCart } from '@mui/icons-material';
-import { makeStyles } from '@mui/styles';
-import { ThemeProvider } from '@mui/system';
-import { createTheme } from '@mui/system';
+import accounting from 'accounting';
 
 const theme = createTheme();
 
@@ -51,12 +51,12 @@ export default function Product() {
       <Card className={classes.root}>
         <CardHeader
           action={
-            <Typography 
+            <Typography
               className={classes.action}
               variant='h5'
               color='textSecondary'
             >
-              {50}
+              {accounting.formatMoney(50)}
             </Typography>
           }
           title='Taza'
@@ -82,7 +82,9 @@ export default function Product() {
             ))}
           </IconButton>
           <IconButton onClick={handleExpandClick}>
-            <ExpandMoreIcon className={expanded ? classes.expandOpen : classes.expand} />
+            <ExpandMoreIcon
+              className={expanded ? classes.expandOpen : classes.expand}
+            />
           </IconButton>
         </CardActions>
         <Collapse in={expanded} timeout='auto' unmountOnExit>
