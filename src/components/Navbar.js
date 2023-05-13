@@ -12,10 +12,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     marginBottom: '7rem',
+    backgroundColor: 'green',
   },
   appBar: {
-    backgroundColor: 'green',
-    boxShadow: 'none',
+    backgroundColor: 'blue',
+   
   },
   grow: {
     flexGrow: 1,
@@ -33,7 +34,7 @@ export default function Navbar() {
   const classes = useStyles();
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed">
+      <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <IconButton
             size="large"
@@ -45,10 +46,16 @@ export default function Navbar() {
           >
             <img src={logo} className={classes.image} alt="Logo" />
           </IconButton>
-          <Typography variant="h6" component="div" className={classes.title}>
+          <Typography variant="h6" component="div" color="textPrimary">
             hello guest
           </Typography>
-          <Button color="inherit">Login</Button>
+          <div className={classes.button}>
+            <Button variant="filled">
+            <strong>Sign in</strong>
+            </Button>
+            {/* <shoppingCart fontSize="large" color="primary"/> */}
+            
+          </div>
         </Toolbar>
       </AppBar>
     </Box>
