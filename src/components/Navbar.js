@@ -1,6 +1,5 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -18,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   
   },
   appBar: {
-    backgroundColor: 'yellow',
+    backgroundColor: '#6B8275',
   
    
   },
@@ -40,15 +39,15 @@ export default function Navbar() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
+      <AppBar position="fixed">
+        <Toolbar className={classes.appBar}>
           <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2}}
-            className={classes.menuButton}
+            className={classes.Button}
           >
             <img src={logo} className={classes.image} alt="Logo" />
           </IconButton>
@@ -57,7 +56,7 @@ export default function Navbar() {
             Hola perro
           </Typography>
           <div className={classes.button}>
-            <Button variant="contained">
+            <Button variant="contained" color='secondary'>
             <strong>Sign in</strong>
             </Button>
 
