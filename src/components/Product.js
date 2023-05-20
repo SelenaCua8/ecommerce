@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { AddShoppingCart } from '@mui/icons-material';
 import accounting from 'accounting';
+import product from '../product-data';
 
 const theme = createTheme();
 
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 300,
     margin: '3rem',
-    backgroundColor:  '#6B8275',
+    backgroundColor:  '#6B8275', //no me toma el color en la card 
   },
   action: {
     marginTop: '1rem',
@@ -45,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function Product() {
+export default function Product({product:id, name, productType, image,price,description}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -63,20 +64,20 @@ export default function Product() {
               variant='h5'
               color='textSecondary'
             >
-              {accounting.formatMoney(50, '$')}
+              {accounting.formatMoney(price, '$')}
             </Typography>
           }
-          title='Taza'
           subheader='En stock'
+          title={name}
         />
         <CardMedia
           className={classes.media}
-          image='https://i.pinimg.com/564x/ed/b7/ff/edb7ff2c26e239ed8090f44bdfedc9f7.jpg'
-          title='Taza'
+          image={image}
+          title={name}
         />
         <CardContent>
           <Typography variant='body2' color='text.secondary'>
-            Taza Luna
+            {productType}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
@@ -96,7 +97,7 @@ export default function Product() {
         </CardActions>
         <Collapse in={expanded} timeout='auto' unmountOnExit>
           <CardContent>
-            <Typography paragraph>Taza de Luna bañada en oro</Typography>
+            <Typography paragraph>{description}</Typography>
           </CardContent>
         </Collapse>
       </Card>
