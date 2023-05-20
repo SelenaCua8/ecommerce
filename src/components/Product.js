@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { AddShoppingCart } from '@mui/icons-material';
 import accounting from 'accounting';
-import product from '../product-data';
+
 
 const theme = createTheme();
 
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function Product({product:id, name, productType, image,price,description}) {
+export default function Product({id,name,image,price,description}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -76,9 +76,9 @@ export default function Product({product:id, name, productType, image,price,desc
           title={name}
         />
         <CardContent>
-          <Typography variant='body2' color='text.secondary'>
+          {/* <Typography variant='body2' color='text.secondary'>
             {productType}
-          </Typography>
+          </Typography> */}
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label='add to favorites'>
@@ -89,6 +89,11 @@ export default function Product({product:id, name, productType, image,price,desc
               <p key={i}>&#11088;</p>
             ))}
           </IconButton>
+          {/* <IconButton>
+  {[...Array(1)].map((_, i) => (
+    <p key={i}>{String.fromCharCode(11088)}</p>
+  ))}
+</IconButton> */}
           <IconButton onClick={handleExpandClick}>
             <ExpandMoreIcon
               className={expanded ? classes.expandOpen : classes.expand}
