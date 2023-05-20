@@ -18,24 +18,29 @@ const theme = createTheme();
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 300,
-    margin: '10rem',
+    margin: '3rem',
+    backgroundColor:  '#6B8275',
   },
   action: {
-    marginTop: '5rem',
+    marginTop: '1rem',
+    
   },
   media: {
     height: 0,
     paddingTop: '25rem',
+    
   },
   expand: {
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
+      
     }),
   },
   expandOpen: {
     transform: 'rotate(180deg)',
+    
   },
 
 }));
