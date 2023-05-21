@@ -28,9 +28,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
 
   },
-  cardRating:{
-    display: 'flex',
-  }
+//   cardRating:{
+//     display: 'flex',
+//   }
   
 }));
 
@@ -56,13 +56,13 @@ export default function CheckoutCard({
       />
       <CardMedia className={classes.media} image={image} title={name} />
       <CardActions disableSpacing className={classes.cardActions}>
-             <div className={classes.cardRating}>
+             {/* <div className={classes.cardRating}>
                 {Array(rating)
                 .fill()
                 .map((_, i) =>(
                 <p>&#11088</p>
                      ))}
-            </div>
+            </div> */} 
           
          <IconButton aria-label='Delete'>
               <DeleteIcon fontSize='large' />
