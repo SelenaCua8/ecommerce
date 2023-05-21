@@ -8,6 +8,7 @@ import logo from '../assets/logoceramica.png';
 import { makeStyles } from '@mui/styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge } from '@mui/material';
+import { useStateValue } from '../StateProvider';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,10 +38,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar() {
   const classes = useStyles();
+  const [{basket}, dispatch] = useStateValue();
   return (
     <div className={classes.root}>
       <AppBar position="fixed">
         <Toolbar className={classes.appBar}>
+          <Link to='/'>
           <IconButton
             size="large"
             edge="start"
@@ -51,6 +54,8 @@ export default function Navbar() {
           >
             <img src={logo} className={classes.image} alt="Logo" />
           </IconButton>
+          </Link>
+          
           <div className={classes.grow}/>
           <Typography variant="h6" component="p" color="textPrimary">
             Hola perro
@@ -59,13 +64,15 @@ export default function Navbar() {
             <Button variant="contained" color='secondary'>
             <strong>Sign in</strong>
             </Button>
-
+            <Link to='checkout-page'>
             <IconButton aria-label='show cart items' color='inherit'>
-              <Badge badgeContent={2} color='secondary'>
+              <Badge badgeContent={basket?.length} color='secondary'>
               <ShoppingCartIcon fontSize="large"/> 
               </Badge>
+             </IconButton>
+            </Link>
+
             
-            </IconButton>
              
             
           </div>
