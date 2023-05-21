@@ -46,10 +46,10 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function Product({id,name,image,price,description}) {
+export default function Product({product}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-
+  const {id,name,price,image,description} = product;
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
