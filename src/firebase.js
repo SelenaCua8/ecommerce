@@ -39,7 +39,16 @@ const firebaseConfig = {
   messagingSenderId: "1092313155049",
   appId: "1:1092313155049:web:afdba522e40208280af778"
 };
+initializeApp(firebaseConfig);
 
-const firebaseApp = initializeApp(firebaseConfig);
+export const auth = firebase.auth(); 
 
-export const auth = firebase.auth();
+// rules_version = '2';
+// service cloud.firestore {
+//   match /databases/{database}/documents {
+//     match /{document=**} {
+//       allow read, write: if
+//           request.time < timestamp.date(2023, 6, 21);
+//     }
+//   }
+// }
