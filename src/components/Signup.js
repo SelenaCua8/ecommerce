@@ -12,7 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {Link as RouteLink, useHistory} from 'react-router-dom';
+import { Link as RouteLink } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import { auth } from '../firebase';
 
 function Copyright(props) {

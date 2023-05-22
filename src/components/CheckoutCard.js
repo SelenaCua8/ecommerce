@@ -8,9 +8,11 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { makeStyles } from '@mui/styles';
 import accounting from 'accounting';
-import DeleteIcon from '@mui/material/DeleteIcon';
 import { useStateValue } from '../StateProvider';
-import {actionType} from '../reducer';
+import {actionTypes} from '../reducer';
+import CardContent from '@mui/material/CardContent';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
