@@ -338,6 +338,7 @@ import Checkout from './CheckoutForm/Checkout';
 import { actionTypes } from './reducer';
 import { getFirestore, getDoc, doc } from 'firebase/firestore';
 
+
 const theme = createTheme();
 
 function App() {
