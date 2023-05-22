@@ -1,6 +1,8 @@
 import { ClassNames } from '@emotion/react'
 import React from 'react'
 import accounting from 'accounting'
+import { getBasketTotal } from '../reducer'
+import { useStateValue } from '../StateProvider';
 
 const useStyles = makeStyles((theme) =>({
 
@@ -20,10 +22,11 @@ const useStyles = makeStyles((theme) =>({
 
 const Total = () => {
     const classes = useStyles()
+    const [{basket}, dispatch] = useStateValue();
   return (
     <div className={ClassNames.root}>
-        <h5>Total tiems: 3</h5>
-        <h5>{accounting.formatMonry(50, '$')}</h5>
+        <h5>Total tiems: {basket?.length} </h5>
+        <h5>{accounting.formatMonry(getBasketTotal, '$')}</h5>
         <Button className={ClassNames.button} variant='contained' color='secondary'>Check out</Button>
      </div>
   )

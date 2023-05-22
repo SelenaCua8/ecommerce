@@ -9,6 +9,7 @@ import { makeStyles } from '@mui/styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Badge } from '@mui/material';
 import { useStateValue } from '../StateProvider';
+import {useHistory} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,7 +39,25 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar() {
   const classes = useStyles();
-  const [{basket}, dispatch] = useStateValue();
+  const [{basket, user}, dispatch] = useStateValue();
+  const history = useHistory()
+const handleAuth = () =>{
+  if (user){
+    auth.signOut();
+    dispatch({
+      type: actionTypesTypes.SET_USER,
+      user: null,
+
+    });
+    dispatch({
+      type: actionTypesTypes.EMPTY_BASKET,
+      basket:  [],
+
+    });
+    history.push('/')
+  }
+}
+
   return (
     <div className={classes.root}>
       <AppBar position="fixed">
@@ -58,12 +77,12 @@ export default function Navbar() {
           
           <div className={classes.grow}/>
           <Typography variant="h6" component="p" color="textPrimary">
-            Hola perro
+            Hola {user ? user.name : "Perro"}
           </Typography>
           <div className={classes.button}>
             <Link to='/signin'>
-            <Button variant="contained" color='secondary'>
-            <strong>Sign in</strong>
+            <Button variant="contained" color='secondary' onClick={handleAuth}>
+            <strong>{user ? 'Sign Out' : 'Sign In'}</strong>
             </Button>
             </Link>
             

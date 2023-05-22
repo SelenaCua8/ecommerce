@@ -9,6 +9,8 @@ import Typography from '@mui/material/Typography';
 import { makeStyles } from '@mui/styles';
 import accounting from 'accounting';
 import DeleteIcon from '@mui/material/DeleteIcon';
+import { useStateValue } from '../StateProvider';
+import {actionType} from '../reducer';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,10 +41,17 @@ export default function CheckoutCard({
 }) {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
+  const [{basket}, dispatch] = useStateValue();
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  const removeItem = () => {
+    dispatch({
+      type: actionTypes.REMOVE_ITEM,
+      id: id,
+    });
+  };
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -65,7 +74,7 @@ export default function CheckoutCard({
             </div> */} 
           
          <IconButton aria-label='Delete'>
-              <DeleteIcon fontSize='large' />
+              <DeleteIcon fontSize='large' onClick={removeItem} />
         </IconButton>
     </CardActions>
     </Card>

@@ -12,6 +12,7 @@ import SignUp from './components/Signup';
 import { useEffect } from 'react';
 import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
+import Checkout from './CheckoutForm/Checkout';
 
 const theme = createTheme();
 
@@ -48,6 +49,9 @@ function App() {
             </Route>
           <Route path='/checkout-page'>
             <CheckoutPage /> 
+            </Route>
+            <Route path='/checkout'>
+            <Checkout /> 
             </Route>
             <Route path='/'>
             <Products /> 
